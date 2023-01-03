@@ -34,13 +34,18 @@ body.active {
 body {
    background: #010a09;
    color: white;
+   overflow-x: hidden;
 }
                                    
                                    
 .heading {
    text-align: center;
+   transform: scale(1.3,1.3);
+   transition: transform 2s ease;
 }
-                                   
+.heading.show{
+  transform: scale(1,1);
+}                                   
 .heading h2 {
    font-size: 30px;
 }
@@ -128,21 +133,37 @@ header.shadow {
 .home-img img {
    width: 100%;
 }
-                                   
+.home-text{
+  left:0px;
+  position: relative;
+}  
+@keyframes Move {
+  from {left: 200px;}
+  to {left: 0px;}
+}                              
 .home-text span {
   font-size: var(--medium-font);
   font-weight: 500;
+  animation: Move 2.5s;
+  position: relative;
 }
                                    
 .home-text h1 {
   font-size: var(--big-font);
+  animation: Move 2.5s;
+  position: relative;
 }
                                    
 .home-text h2 {
   font-size: 1.1rem;
   font-weight: 400;
+  animation: Move 2.5s;
+  position: relative;
 }
-                                   
+.home-text a {
+  animation: Move 2.5s;
+  position: relative;
+}                                  
 .home-text p {
   font-size: var(--p-font);
   font-weight: 400;
@@ -158,8 +179,21 @@ header.shadow {
   margin-bottom: 1rem;
   font-size: 22px;
   color: white;
+  position: relative;
 }
-                                   
+.social a:nth-child(1) {
+  animation: moveSocial 2.5s;
+}
+.social a:nth-child(2) {
+  animation: moveSocial 3s;
+}
+.social a:nth-child(3) {
+  animation: moveSocial 3.5s;
+}
+@keyframes moveSocial{
+  from {left: -200px;}
+  to {left: 0px;}
+}                                   
 .social a:hover {
    color: var(--hover);
 }
@@ -180,13 +214,22 @@ header.shadow {
                                    
 .about-container {
   margin-top: 2rem;
+  opacity: 0;
 }
                                    
 .about-img img {
   width: 80%;
   border-radius: 0.5rem;
 }
-                                   
+.about-container.active{
+  animation: opacity 4s;
+  opacity: 1;
+}  
+
+@keyframes opacity {
+  from {opacity: 0}
+  to {opacity: 1}
+}                                 
 .about-text p {
   font-size: var(--p-font);
   font-weight: 400;
@@ -194,7 +237,7 @@ header.shadow {
   line-height: 3rem;
   margin-bottom: 2rem;
 }
-                                   
+                                  
 .information {
   margin: 1rem 0 1.4rem;
 }
@@ -224,10 +267,10 @@ header.shadow {
   object-position: center;
 }
 .bars{
-display: flex;
-flex-wrap: wrap;
-align-items: center;
-justify-content: center;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
  }
 .bars-box {
   position: relative;
@@ -238,7 +281,33 @@ justify-content: center;
   margin-bottom: 5rem;
   width: 22rem;
   flex-direction: column;
+  transition: transform 2s ease;
 }
+.bars-box.show{
+  transform: translateX(0) !important;
+  transform: translateY(0) !important;
+}
+.bars-box:nth-child(1){
+  transform: translateX(-150%);
+} 
+.bars-box:nth-child(2){
+  transform: translateY(150%);
+} 
+.bars-box:nth-child(3){
+  transform: translateX(150%);
+} 
+.bars-box:nth-child(4){
+  transform: translateX(-150%);
+} 
+.bars-box:nth-child(5){
+  transform: translateY(150%);
+} 
+.bars-box:nth-child(6){
+  transform: translateX(150%);
+} 
+.bars-box:nth-child(7){
+  transform: translateY(150%);
+} 
 .bars-box img{
   width: 20%;
   margin-bottom: 20px;
@@ -280,6 +349,35 @@ span {
   border-bottom: 2px solid var(--main-color);
   box-shadow: 0 2px 7px rgb(14 55 54 / 15%);
   margin-bottom: 3rem;
+  
+}
+.services-box.show{
+  transform: translateX(0) !important;
+  transform: translateY(0) !important;
+}
+.services-box:nth-child(1){
+  transform: translateX(-100%);
+  transition: transform 1s ease;
+}
+.services-box:nth-child(2){
+  transform: translateX(100%);
+  transition: transform 1s ease;
+}
+.services-box:nth-child(3){
+  transform: translateX(-100%);
+  transition: transform 2s ease;
+}
+.services-box:nth-child(4){
+  transform: translateX(100%);
+  transition: transform 2s ease;
+}
+.services-box:nth-child(5){
+  transform: translateX(-100%);
+  transition: transform 3s ease;
+}
+.services-box:nth-child(6){
+  transform: translateX(100%);
+  transition: transform 3s ease;
 }
 .detail-prg{
   display: flex;
